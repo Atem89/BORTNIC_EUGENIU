@@ -19,8 +19,8 @@ public class Main {
 
         for (int i = 0; i != personsArray.length; i++) {
             Person person = personsArray[i];
-            if (person instanceof Manager) {
-                ((Manager)person).work();
+            if (person instanceof Manager teamObject) {
+                ((Manager) person).work();
             }
         }
     }
