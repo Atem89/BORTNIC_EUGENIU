@@ -8,7 +8,7 @@ import java.util.Set;
 public class NoDuplicate {
     public List<String> noDuplicate(List<String> list){
         List<String> duplicates = new ArrayList<>();
-        Set<String> set = new HashSet<>();
+        Set set = new HashSet<>(duplicates);
 
         for (String i : list) {
             if(set.contains(i)){
