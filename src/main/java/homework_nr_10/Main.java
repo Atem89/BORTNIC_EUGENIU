@@ -47,20 +47,16 @@ public class Main {
         Predicate<Employee> isOlder20= e -> e.Age > 20;
         Predicate<Employee> nameStartsWithA = e -> e.Name.startsWith("A");
 
+        List<Predicate<Employee>> predicates = new ArrayList<>();
+        predicates.add(e -> e.Department.equals("Software Engineering"));
+        predicates.add(e -> e.Age > 20);
+        predicates.add(e -> e.Name.startsWith("A"));
 
-        Employee.testEmployee(employeeObject1, worksInSoftwareEngineering);
-        Employee.testEmployee(employeeObject1, isOlder20);
-        Employee.testEmployee(employeeObject1, nameStartsWithA);
-
-        Employee.testEmployee(employeeObject2, worksInSoftwareEngineering);
-        Employee.testEmployee(employeeObject2, isOlder20);
-        Employee.testEmployee(employeeObject2, nameStartsWithA);
-
-        Employee.testEmployee(employeeObject3, worksInSoftwareEngineering);
-        Employee.testEmployee(employeeObject3, isOlder20);
-        Employee.testEmployee(employeeObject3, nameStartsWithA);
-
-
+        for (Employee employee : employeeList) {
+            for (Predicate<Employee> predicate : predicates) {
+                Employee.testEmployee(employee, predicate);
+            }
+        }
     }
 
     public static void testNumber (List<Integer> numberList, IsOddTestable algoritm){
