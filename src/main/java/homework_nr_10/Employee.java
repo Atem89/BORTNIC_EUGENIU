@@ -17,8 +17,12 @@ public class Employee {
 
     @Override
     public String toString() {
-        return String.format("Employee{name='%s', surname='%s', age=%d, department='%s'}",
-                Name, Surname, Age, Department);
+        return "Employee{" +
+                "Name='" + Name + '\'' +
+                ", Surname='" + Surname + '\'' +
+                ", Age=" + Age +
+                ", Department='" + Department + '\'' +
+                '}';
     }
 
     public static void testEmployee(Employee e, Predicate<Employee> testMethod) {
