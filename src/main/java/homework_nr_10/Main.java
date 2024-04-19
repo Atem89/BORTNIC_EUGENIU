@@ -43,10 +43,6 @@ public class Main {
 
         List<Employee> employeeList = List.of(employeeObject1, employeeObject2, employeeObject3);
 
-        Predicate<Employee> worksInSoftwareEngineering = e -> e.Department.equals("Software Engineering");
-        Predicate<Employee> isOlder20= e -> e.Age > 20;
-        Predicate<Employee> nameStartsWithA = e -> e.Name.startsWith("A");
-
         List<Predicate<Employee>> predicates = new ArrayList<>();
         predicates.add(e -> e.Department.equals("Software Engineering"));
         predicates.add(e -> e.Age > 20);
