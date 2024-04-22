@@ -1,19 +1,19 @@
 package homework_nr_12;
 
 public enum FuelTypes {
-    PETROL_95(true),
-    PETROL_98(true),
-    PETROL_100(true),
-    DIESEL_51(true),
-    DIESEL_55(true),
-    METAN(false),
-    PROPANE(false),
-    ELECTRIC(false);
+    PETROL_95,
+    PETROL_98,
+    PETROL_100,
+    DIESEL_51,
+    DIESEL_55,
+    METAN,
+    PROPANE,
+    ELECTRIC;
 
-    public final boolean isLiquidFuel;
 
-    FuelTypes(boolean isLiquidFuel) {
-        this.isLiquidFuel = isLiquidFuel;
+
+    public boolean isLiquidFuel(){
+        return this != ELECTRIC;
     }
 
 }

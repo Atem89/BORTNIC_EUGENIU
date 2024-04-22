@@ -11,7 +11,7 @@ public class Main {
 
         FuelTypes[] allFuelTypes = FuelTypes.values();
         for (FuelTypes e : allFuelTypes){
-            System.out.println(e + " " + e.isLiquidFuel);
+            System.out.println(e + " " + e.isLiquidFuel());
         }
         System.out.println("---------------------------------------");
 

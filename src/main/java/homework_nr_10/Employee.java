@@ -15,6 +15,38 @@ public class Employee {
         Department = department;
     }
 
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public String getSurname() {
+        return Surname;
+    }
+
+    public void setSurname(String surname) {
+        Surname = surname;
+    }
+
+    public int getAge() {
+        return Age;
+    }
+
+    public void setAge(int age) {
+        Age = age;
+    }
+
+    public String getDepartment() {
+        return Department;
+    }
+
+    public void setDepartment(String department) {
+        Department = department;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -25,12 +57,5 @@ public class Employee {
                 '}';
     }
 
-    public static void testEmployee(Employee e, Predicate<Employee> testMethod) {
-        if (testMethod.test(e)) {
-            System.out.println("Test passed for: " + e);
-        } else {
-            System.out.println("Test failed for: " + e);
-        }
-    }
 
 }
