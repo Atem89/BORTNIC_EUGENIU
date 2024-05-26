@@ -4,17 +4,49 @@ public class Main {
     public static void main(String[] args) {
         TaskManager taskManager = new TaskManager();
 
-        taskManager.addTask("Task 1");
-        taskManager.addTask("Task 2");
+        Thread addThread = new Thread(new AddTaskRunnable(taskManager));
+        Thread removeThread = new Thread(new RemoveTaskRunnable(taskManager));
 
+        addThread.start();
+        removeThread.start();
+
+        try {
+            addThread.join();
+            removeThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("Total tasks: " + taskManager.getTaskCount());
-
         System.out.println("All tasks: " + taskManager.getAllTasks());
+    }
+}
 
-        taskManager.removeTask("Task 1");
+class AddTaskRunnable implements Runnable {
+    private final TaskManager taskManager;
 
-        System.out.println("Total tasks after removal: " + taskManager.getTaskCount());
-        System.out.println("All tasks after removal: " + taskManager.getAllTasks());
+    public AddTaskRunnable(TaskManager taskManager) {
+        this.taskManager = taskManager;
+    }
 
+    @Override
+    public void run() {
+        for (int i = 0; i < 1000; i++) {
+            taskManager.addTask("Task " + i);
+        }
+    }
+}
+
+class RemoveTaskRunnable implements Runnable {
+    private final TaskManager taskManager;
+
+    public RemoveTaskRunnable(TaskManager taskManager) {
+        this.taskManager = taskManager;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i < 500; i++) {
+            taskManager.removeTask("Task " + i);
+        }
     }
 }
